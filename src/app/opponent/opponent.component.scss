@@ -1,0 +1,15 @@
+:host {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+
+    img {
+        width: 75%;
+    }
+}
