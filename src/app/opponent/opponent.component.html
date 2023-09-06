@@ -1,4 +1,4 @@
 <div class="container">
     <img *ngIf="computerDecision===null" src="/assets/options/robot.svg" alt="robot">
-    <app-option *ngIf="computerDecision" [option]="computerDecision"></app-option>
+    <app-option *ngIf="computerDecision" [option]="computerDecision" (click)="clear()"></app-option>
 </div>

@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { GameService } from '../game.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-options',
   templateUrl: './options.component.html',
-  styleUrls: ['./options.component.scss']
+  styleUrls: ['./options.component.scss'],
 })
-export class OptionsComponent implements OnInit {
+export class OptionsComponent implements OnInit, OnDestroy {
+  resultSub!: Subscription;
   decision: 'rock' | 'paper' | 'scissors' | null = null;
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
-  ngOnInit(): void {}
-
-  makeDecision(decision: 'rock' | 'paper' | 'scissors') {
-    this.decision = this.decision ? null : decision;
+  ngOnInit(): void {
+    this.gameService.playerDecision.subscribe((val)=>{
+      this.decision = val;
+    })
   }
 
+  ngOnDestroy(): void {
+    this.resultSub.unsubscribe();
+  }
 }

@@ -16,5 +16,7 @@ export class OpponentComponent implements OnInit {
       this.computerDecision = decision;
     })
   }
-
+  clear() {
+    this.gameService.clear();
+  }
 }
