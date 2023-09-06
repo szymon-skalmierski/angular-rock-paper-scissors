@@ -8,21 +8,19 @@
   </div>
   <ng-template #recivedResult>
     <div>
-      <div *ngIf="result==='pc'">
+      <ng-container *ngIf="result==='pc'">
         <p class="lose">You lost.</p>
         <p>Maybe next time you'll win?</p>
-        <p class="tip">If you want to play again click on your option.</p>
-      </div>
-      <div *ngIf="result==='player'">
+      </ng-container>
+      <ng-container *ngIf="result==='player'">
         <p class="win">You won this battle.</p>
         <p>Don't get ahead of yourself. I'll beat you next time.</p>
-        <p class="tip">If you want to play again click on your option.</p>
-      </div>
-      <div *ngIf="result==='draw'">
+      </ng-container>
+      <ng-container *ngIf="result==='draw'">
         <p class="draw">It's a draw.</p>
         <p>Brilliant minds think alike. </p>
-        <p class="tip">If you want to play again click on your option.</p>
-      </div>
+      </ng-container>
+      <p class="tip">If you want to play again click on your option.</p>
     </div>
   </ng-template>
   <app-options></app-options>
